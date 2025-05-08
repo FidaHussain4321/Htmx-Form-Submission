@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-grey-600  justify-center items-center">
+
+    <form
+    hx-post="." 
+hx-target="#df" 
+
+enctype="multipart/form-data" 
+method="post"
+>
+{% csrf_token %}    
+<input   type="file" name="file" accept=".csv,.txt" required />
+<br>
+<button  class="text-pink bg-blue-300 rounded  ml-10 mt-4" type="submit">Submit</button>
+</form>
+
+<div id="df">
+    
+    
+</div>
+
+<div x-data="{ name: 'null' }">
+    <h1 class="text-red-500 font-bold">testing alpinejs</h1>
+    <input class="rounded border border-green-200 "type="text" x-model="name" />
+    <button x-on:click="name ='hello ' + name">click me</button>
+    <h2 x-text="name"> </h2>
+</div>
+</div>
+{% endblock %}
